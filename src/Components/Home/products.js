@@ -18,7 +18,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: { lg: 700, xs: 400 },
+  width: { lg: 700, xs: 350 },
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,

@@ -12,9 +12,9 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import HomeIcon from "@mui/icons-material/Home";
-import MenuIcon from '@mui/icons-material/Menu';
-import RamenDiningIcon from '@mui/icons-material/RamenDining';
-import CakeIcon from '@mui/icons-material/Cake';
+import MenuIcon from "@mui/icons-material/Menu";
+import RamenDiningIcon from "@mui/icons-material/RamenDining";
+import CakeIcon from "@mui/icons-material/Cake";
 import InfoIcon from "@mui/icons-material/Info";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
@@ -22,42 +22,54 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const navigate = useNavigate(); 
-  
+  const navigate = useNavigate();
+
   const menuOptions = [
     {
       text: "Home",
       icon: <HomeIcon />,
+      path: "/",
     },
     {
       text: "Online Menu",
       icon: <MenuIcon />,
+      path: "/",
     },
     {
       text: "Catering",
       icon: <RamenDiningIcon />,
+      path: "/",
     },
     {
       text: "Cakes",
       icon: <CakeIcon />,
+      path: "/",
     },
     {
       text: "About Us",
       icon: <InfoIcon />,
+      path: "/",
     },
     {
       text: "Contact",
       icon: <PhoneRoundedIcon />,
+      path: "/",
     },
     {
       text: "Cart",
       icon: <ShoppingCartRoundedIcon />,
+      path: "/",
+    },
+    {
+      text: "Sign In",
+      icon: <ShoppingCartRoundedIcon />,
+      path: "/sign-in",
     },
   ];
 
   const handleLoginPage = () => {
-    navigate('/sign-in');
-  }
+    navigate("/sign-in");
+  };
   return (
     <nav>
       <div className="nav-logo-container">
@@ -73,7 +85,9 @@ const Navbar = () => {
         <a href="">
           <BsCart2 className="navbar-cart-icon" />
         </a>
-        <button className="primary-button" onClick={handleLoginPage}>Sign In</button>
+        <button className="primary-button" onClick={handleLoginPage}>
+          Sign In
+        </button>
       </div>
       <div className="navbar-menu-container">
         <HiOutlineBars3 onClick={() => setOpenMenu(true)} />
@@ -87,12 +101,14 @@ const Navbar = () => {
         >
           <List>
             {menuOptions.map((item) => (
-              <ListItem key={item.text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.text} />
-                </ListItemButton>
-              </ListItem>
+              <a key={item.text} href={item.path}>
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.text} />
+                  </ListItemButton>
+                </ListItem>
+              </a>
             ))}
           </List>
           <Divider />
