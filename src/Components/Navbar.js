@@ -19,6 +19,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import { useNavigate } from "react-router-dom";
+import LoginIcon from '@mui/icons-material/Login';
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -62,7 +63,7 @@ const Navbar = () => {
     },
     {
       text: "Sign In",
-      icon: <ShoppingCartRoundedIcon />,
+      icon: <LoginIcon />,
       path: "/sign-in",
     },
   ];
@@ -101,7 +102,7 @@ const Navbar = () => {
         >
           <List>
             {menuOptions.map((item) => (
-              <a key={item.text} href={item.path}>
+              <a key={item.text} href={item.path} style={{color: 'var(--dark)'}}>
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>{item.icon}</ListItemIcon>
